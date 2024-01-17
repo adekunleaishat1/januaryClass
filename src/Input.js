@@ -1,41 +1,61 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
+
 
 const Input = () => {
     // let myname = "karleed"
     let gender = "male"
     const [myname, setmyname] = useState("karleed")
-    const [list, setlist] = useState("")
-    const [list2, setlist2] = useState("")
+    const [title, settitle] = useState("")
+    const [content, setcontent] = useState("")
     const [lists, setlists] = useState([])
+    const [isloading, setisloading] = useState(false)
+    const [count , setcount] = useState(0)
+    const [calculate , setcalculate ] = useState(0)
    // {conditonal expression? "true" : "false"}
    const [allstudent, setallstudent] = useState([
     {firstname:"tola", lastname:"adesanya"},
     {firstname:"bola", lastname:"adesanya"},
     {firstname:"tomi", lastname:"adesanya"}
    ])
-   const change = () =>{
+    useEffect(() => {
+      fetch('https://dummyjson.com/products')
+      .then(res => res.json())
+       .then(json => console.log(json))
+    
+    //   setTimeout(() => {
+    //     setisloading(true)
+    //  }, 5000);
+    //  setcalculate(count + calculate)
+      
+    },[])
+
+ let items = JSON.parse(localStorage.getItem("lists"))
+ console.log(items);
+  
+    
    
-   let alllist = {
-    list,
-    list2
-   }
-   console.log(alllist);
-   setlists([...lists, alllist])
-    // setmyname(list) 
-    console.log(lists);
-   }
-   console.log(list);
+  
+    const save = () =>{
+      let alllist = {
+        title,
+        content
+       }
+       console.log(alllist);
+       setlists([...lists, alllist])
+      localStorage.setItem("lists", JSON.stringify(lists))
+       
+    }
   return (
     <div>
       <h1>{gender == "male"? myname : ""}</h1> 
-      <button onClick={change}>change name</button> 
+      {/* <button onClick={change}>change name</button>  */}
       <table className='table border'>
         <tr>
             <td>S/N</td>
             <td>FIRSTNAME</td>
             <td>LASTNAME</td>
         </tr>
-        {allstudent.map((el, index) =>(
+        {!isloading?<h1>....loading</h1> : allstudent.map((el, index) =>(
             <>
              <tr>
                 <td>{index + 1}</td>
@@ -47,8 +67,18 @@ const Input = () => {
 
         }
        </table>
-       <input onChange={(e)=>setlist(e.target.value)} type="text" />
-       <input onChange={(e)=>setlist2(e.target.value)} type="text" />
+
+
+       <div className='form-group w-50 mx-auto'>
+       <input className='form-control mt-3' onChange={(e)=>settitle(e.target.value)} type="text" />
+       <input className='form-control mt-3' onChange={(e)=>setcontent(e.target.value)} type="text" />  
+       <button onClick={save}>Save todo</button>
+       </div>
+       <h1>{count}</h1>
+       <h1>{calculate}</h1>
+
+       
+      
          
     </div>
   )

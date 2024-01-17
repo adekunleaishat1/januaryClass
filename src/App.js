@@ -3,6 +3,7 @@ import mystyle from './Styl/Mystyle'
 import Home from './Home'
 import Navbar from './Navbar'
 import Input from './Input'
+import Assignment from './Assignment'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       {/* <Home/> */}
       <Navbar/>
       <Input/>
+      {/* <Assignment/> */}
     </div>
   )
 }
