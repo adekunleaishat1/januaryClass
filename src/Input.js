@@ -1,4 +1,5 @@
 import React,{useState, useEffect} from 'react'
+import Button from './Button'
 
 
 const Input = () => {
@@ -17,17 +18,17 @@ const Input = () => {
     {firstname:"bola", lastname:"adesanya"},
     {firstname:"tomi", lastname:"adesanya"}
    ])
-    useEffect(() => {
-      fetch('https://dummyjson.com/products')
-      .then(res => res.json())
-       .then(json => console.log(json))
+    // useEffect(() => {
+    //   fetch('https://dummyjson.com/products')
+    //   .then(res => res.json())
+    //    .then(json => console.log(json))
     
-    //   setTimeout(() => {
-    //     setisloading(true)
-    //  }, 5000);
-    //  setcalculate(count + calculate)
+    // //   setTimeout(() => {
+    // //     setisloading(true)
+    // //  }, 5000);
+    // //  setcalculate(count + calculate)
       
-    },[])
+    // },[])
 
  let items = JSON.parse(localStorage.getItem("lists"))
  console.log(items);
@@ -44,6 +45,13 @@ const Input = () => {
        setlists([...lists, alllist])
       localStorage.setItem("lists", JSON.stringify(lists))
        
+    }
+    const click = () =>{
+      alert("button is working")
+    }
+    const login = (i) =>{
+      
+      alert("login is working" + i)
     }
   return (
     <div>
@@ -77,7 +85,9 @@ const Input = () => {
        <h1>{count}</h1>
        <h1>{calculate}</h1>
 
-       
+       <Button click={click} style="btn btn-success" value="sign up"/>
+       <Button click={login} style="btn btn-danger" value="login "/>
+       <Button style="btn btn-primary" value="edit"/>
       
          
     </div>

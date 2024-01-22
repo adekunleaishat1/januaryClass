@@ -13,7 +13,7 @@ const App = () => {
       <p style={mystyle.nav}>Another</p> */}
       {/* <Home/> */}
       <Navbar/>
-      <Input/>
+      {/* <Input/> */}
       {/* <Assignment/> */}
     </div>
   )
