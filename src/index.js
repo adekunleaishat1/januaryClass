@@ -6,13 +6,25 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.js'
 import 'font-awesome/css/font-awesome.min.css'
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter,Route, Routes } from 'react-router-dom';
+import Http from './Http';
+import Navbar from './Navbar';
+import Notfound from './Notfound';
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={ <App />}/>
+        <Route path='/*' element={ <Notfound/>}/>
+        <Route path='/http' element={ <Http/>}/>
+        <Route path='/navbar' element={ <Navbar/>}/>
+      </Routes>
+     
+    </BrowserRouter>
   </React.StrictMode>
 );
 
