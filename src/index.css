@@ -1,0 +1,10 @@
+.flex{
+    height: 900px;
+    width: 100%;
+    background-color: bisque;
+}
+.side{
+    height: 900px;
+    width: 100%;
+    background-color:white;
+}

@@ -10,6 +10,8 @@ import { BrowserRouter,Route, Routes } from 'react-router-dom';
 import Http from './Http';
 import Navbar from './Navbar';
 import Notfound from './Notfound';
+import Assignment from './Assignment';
+import Dashboard from './Dashboard';
 
 
 
@@ -17,11 +19,16 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+    {/* <Navbar/> */}
       <Routes>
         <Route path='/' element={ <App />}/>
         <Route path='/*' element={ <Notfound/>}/>
         <Route path='/http' element={ <Http/>}/>
         <Route path='/navbar' element={ <Navbar/>}/>
+        {/* <Route path='/student/dashboard' element={ <Navbar/>}/> */}
+        <Route path='/student' element={<Dashboard/>}>
+          <Route path='/student/profile' element={ <Assignment/>}/>
+        </Route>
       </Routes>
      
     </BrowserRouter>
