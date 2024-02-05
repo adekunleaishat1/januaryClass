@@ -12,6 +12,9 @@ import Navbar from './Navbar';
 import Notfound from './Notfound';
 import Assignment from './Assignment';
 import Dashboard from './Dashboard';
+import Disptodo from './Disptodo';
+import Posts from './Posts';
+import Onepost from './Onepost';
 
 
 
@@ -25,9 +28,12 @@ root.render(
         <Route path='/*' element={ <Notfound/>}/>
         <Route path='/http' element={ <Http/>}/>
         <Route path='/navbar' element={ <Navbar/>}/>
+        <Route path='/post' element={ <Posts/>}/>
+        <Route path='/onepost/:id/:i' element={ <Onepost/>}/>
         {/* <Route path='/student/dashboard' element={ <Navbar/>}/> */}
         <Route path='/student' element={<Dashboard/>}>
           <Route path='/student/profile' element={ <Assignment/>}/>
+          <Route path='/student/disp' element={<Http/>}/>
         </Route>
       </Routes>
      
