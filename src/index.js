@@ -19,6 +19,7 @@ import Formik from './Formik';
 import { Provider } from 'react-redux';
 import Store from './redux/Store';
 import Counter from './Counter';
+import Users from './Users';
 
 
 
@@ -37,6 +38,7 @@ root.render(
         <Route path='/post' element={ <Posts/>}/>
         <Route path='/onepost/:id/:i' element={ <Onepost/>}/>
         <Route path='/counter' element={ <Counter/>}/>
+        <Route path='/user' element={ <Users/>}/>
         {/* <Route path='/student/dashboard' element={ <Navbar/>}/> */}
         <Route path='/student' element={<Dashboard/>}>
           <Route path='/student/profile' element={ <Assignment/>}/>
